@@ -1,0 +1,28 @@
+*{
+       outline: 1px solid black;      
+}
+
+body{
+    /* background: url('https://images8.alphacoders.com/601/601973.jpg') no-repeat center center fixed;  */
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: gray; 
+
+}
+
+.div{
+      text-align: center;
+}
+
+.row1{
+      height: 10vh;
+}
+.row2{
+       height: 80vh;
+}
+.row3{
+       height: 10vh;
+}

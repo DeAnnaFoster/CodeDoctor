@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CodeDoctor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+
+<body>
+
+
+
+
+    <div class="container-fluid">
+        <div class="row row1">
+            <div class="col-xs-2">test 1</div>
+            <div class="col-xs-8">test 2</div>
+            <div class="col-xs-2">test 3</div>
+        </div>
+
+        <div class="row row2">
+            <div class="col-xs-2">test 4</div>
+            <div class="col-xs-8">
+
+                <textarea id="codeText" cols="50" rows="30"></textarea>
+            </div>
+            <div class="col-xs-2">test 6</div>
+        </div>
+
+        <div class="row row3">
+            <div class="col-xs-2">test 7</div>
+            <div class="col-xs-8">
+                <form id="theForm" onsubmit="app.controllers.wordController.getWordFromForm(event) ">
+                    <input type="text" name="word" placeholder="Base Word">
+                </form>
+
+            </div>
+            <div class="col-xs-2">test 9</div>
+        </div>
+    </div>
+
+
+    <!--External Libraries-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+    <!-- services -->
+    <script src="app/components/word/word-service.js"></script>
+
+    <!-- controllers -->
+    <script src="app/components/word/word-controller.js"></script>
+
+    <!-- Init -->
+    <script src="app/init.js"></script>
+</body>
+
+</html>
