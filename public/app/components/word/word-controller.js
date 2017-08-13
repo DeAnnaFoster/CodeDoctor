@@ -8,8 +8,6 @@ function WordController() {
 
         code = document.getElementById('codeText').value.split('\n');
 
-        //console.log(code);
-
         console.log('Let\'s try this:');
         //console.log(code[3]);
 
