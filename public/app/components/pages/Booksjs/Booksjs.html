@@ -219,7 +219,7 @@
                         currentPage: {type: Number, required: true, default: 0}<br>
                     })<br>
                     <br>
-                    var Books = mongoose.model('Book', bookSchema)<br>
+                    var Book = mongoose.model('Book', bookSchema)<br>
                     <br>
                     router.get('/', function(req, res, next) {<br>
                         Books.find({})<br>

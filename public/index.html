@@ -59,7 +59,13 @@
             </div>
 
             <div class="col-xs-4">
-                
+                 <textarea id="htmlText" cols="50" rows="30"></textarea>
+                <form id="theForm2" onsubmit="app.controllers.wordController.changeTags(event) ">
+                     <!-- <div id="old"><input type="text" name="wordOld" placeholder="Old base Word To Replace"></div>
+                    <div id="new"><input type="text" name="wordNew" placeholder="New base Word"></div>  -->
+                     <input class="myInline" type="submit" value="Submit">
+                    <button class="myInline" type="button" onclick="app.controllers.wordController.clearForm2()">Clear Form</button>
+                </form> 
             </div>
 
             <div class="col-xs-2">
@@ -73,10 +79,10 @@
             <div class="col-xs-2"></div>
             <div class="col-xs-8">
                 <!-- <form id="theForm" onsubmit="app.controllers.wordController.getWordFromForm(event) ">
-                    <div id="old"><input type="text" name="wordOld" placeholder="Old base Word To Replace"></div>
-                    <div id="new"><input type="text" name="wordNew" placeholder="New base Word"></div>
+                     <div id="old"><input type="text" name="wordOld" placeholder="Old base Word To Replace"></div>
+                    <div id="new"><input type="text" name="wordNew" placeholder="New base Word"></div> 
                     <input type="submit" value="Submit">
-                </form> -->
+                </form>  -->
 
             </div>
             
