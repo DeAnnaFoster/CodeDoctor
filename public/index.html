@@ -13,37 +13,64 @@
 
 <body>
 
-
     <div class="container-fluid">
         <div class="row row1">
-            <div class="col-xs-2">test 1</div>
-            <div class="col-xs-8">
-                <!-- <button class="myInline" type="button" onclick="app.controllers.wordController.clearForm()">Clear Form</button> -->
-            </div>
-            <div class="col-xs-2">test 3</div>
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8"></div>
+            <div class="col-xs-2"></div>
         </div>
 
         <div class="row row2">
-            <div class="col-xs-2">test 4</div>
-            <div class="col-xs-8">
-                
-                <textarea id="codeText" cols="50" rows="30"></textarea>
+            <div class="col-xs-2">
 
+                <div>
+                    <ul>
+                        <li><a href="app/components/pages/General/General.html" target="_blank">General.html</a></li>
+                        <!-- <li><a href="app/components/pages/HTML/HTML.html" target="_blank">Index.html</a></li> -->
+                        <li><a href="app/components/pages/Mlab/Mlab.html" target="_blank">Mlab-config.js</a></li>
+                        <li><a href="app/components/pages/IndexHTML/Index.html" target="_blank">Index.html</a></li>
+                        <li><a href="app/components/pages/Appjs/App.html" target="_blank">App.js</a></li>
+                        <li><a href="app/components/pages/Initjs/Init.html" target="_blank">Init.js</a></li>
+                        <li><a href="app/components/pages/Servicejs/Service.html" target="_blank">Service.js</a></li>
+                        <li><a href="app/components/pages/Controllerjs/Controller.html" target="_blank">Controller.js</a></li>
+                        <li><a href="app/components/pages/Booksjs/Booksjs.html" target="_blank">Books.js</a></li> 
+                        <li><a href="app/components/pages/Gitignore/Gitignore.html" target="_blank">.gitignore</a></li>
+                        <li><a href="app/components/pages/Indexjs/Indexjs.html" target="_blank">Index.js</a></li>
+                        <li><a href="javascript:void(0);" target="_blank">TBD</a></li>
+                        <li><a href="javascript:void(0);" target="_blank">TBD</a></li>
+                        <li><a href="javascript:void(0);" target="_blank">TBD</a></li>
+                        <li><a href="javascript:void(0);" target="_blank">TBD</a></li>
+                        <li><a href="javascript:void(0);" target="_blank">TBD</a></li>
+                        <li><a href="javascript:void(0);" target="_blank">TBD</a></li>
+                        <li><a href="javascript:void(0);" target="_blank">TBD</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="col-xs-4 special">
+                <textarea id="codeText" cols="50" rows="30"></textarea>
                 <form id="theForm" onsubmit="app.controllers.wordController.getWordFromForm(event) ">
                     <div id="old"><input type="text" name="wordOld" placeholder="Old base Word To Replace"></div>
                     <div id="new"><input type="text" name="wordNew" placeholder="New base Word"></div>
                     <input class="myInline" type="submit" value="Submit">
                     <button class="myInline" type="button" onclick="app.controllers.wordController.clearForm()">Clear Form</button>
-                
                 </form>
-
             </div>
 
-            <div class="col-xs-2">test 6</div>
+            <div class="col-xs-4">
+                
+            </div>
+
+            <div class="col-xs-2">
+                <div class="special2">
+                    <img src="./images/structure.png" alt="structure image">
+                </div>
+            </div>
         </div>
 
         <div class="row row3">
-            <div class="col-xs-2">test 7</div>
+            <div class="col-xs-2"></div>
             <div class="col-xs-8">
                 <!-- <form id="theForm" onsubmit="app.controllers.wordController.getWordFromForm(event) ">
                     <div id="old"><input type="text" name="wordOld" placeholder="Old base Word To Replace"></div>
@@ -52,7 +79,8 @@
                 </form> -->
 
             </div>
-            <div class="col-xs-2">test 9</div>
+            
+            <div class="col-xs-2"></div>
         </div>
     </div>
 

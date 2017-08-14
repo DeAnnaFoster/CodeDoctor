@@ -1,15 +1,15 @@
 *{
-       outline: 1px solid black;      
+       /* outline: 1px solid black;       */
 }
 
 body{
-    /* background: url('https://images8.alphacoders.com/601/601973.jpg') no-repeat center center fixed;  */
+     background: url('https://images8.alphacoders.com/601/601973.jpg') no-repeat center center fixed;  
     text-align: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-color: gray; 
+    background-color: black; 
 
 }
 
@@ -34,3 +34,22 @@ div#old, div#new{
 .myInline{
       margin: 0 20px 0 20px;
 }
+
+ul {
+      list-style-type: none;
+}
+
+.special{
+      opacity: .35;
+}
+.special2{
+      opacity: .75;
+}
+
+
+a, a:visited{
+      text-decoration:none !important;
+      color:blue;
+      font-size: 20px;
+}
+

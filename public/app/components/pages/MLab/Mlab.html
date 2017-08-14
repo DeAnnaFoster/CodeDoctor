@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> 
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-6">
+
+
+            <div>
+                <!-- <img src="./picture.png" alt="outline of structure picture"> -->
+            </div>
+            <div>
+                <!-- <p><h4>Setup structure according to the picture. Adjust as needed.</h4></p> -->
+            </div>
+            <div>
+                <!-- <p><h4><u>First populate index.js:</u></h4>
+                    var express = require('express') <br> 
+                    var bodyParser = require('body-parser') <br> 
+                    var dbConnect = require('./config/db/mlab-config') <br> 
+                    var port = 3000 <br>
+                    <br> 
+                    var server = express() <br> 
+                    server.listen(port,()=>{ <br> 
+                        console.log('Listening on port: ', port) <br>            
+                    }) <br>
+                    <br> 
+                    server.use(express.static(__dirname + '/public' )) <br>
+                    <br> 
+                    server.use(bodyParser.json()) <br> 
+                    server.use(bodyParser.urlencoded({extended:true})) <br>
+                    <br> var booksRouter = require('./routes/books') <br> 
+                    server.use('/api/books', booksRouter) <br>
+
+                    <br>
+                    <h4><u>Next populate .gitignore with:</u></h4>
+                    node_modules<br> -->
+
+                    <br>
+                    <h4>Next populate mlab-config.js with:</h4>
+                    var mongoose = require('mongoose')    <br>
+                    var connection = mongoose.connection    <br>
+                    <br>
+                    mongoose.connect('mongodb://student:student@ds153709.mlab.com:53709/bookmarks', {    <br>
+                    server:{socketOptions:{keepAlive: 300000, connectTimeoutMS: 30000}},    <br>
+                    replset:{socketOptions:{keepAlive: 300000, connectTimeoutMS: 30000}},    <br>
+                    })<br>
+                    <br>
+                    connection.on('error', (err) =>{    <br>
+                    console.log('Mlab Error you fool ', err)    <br>
+                    })<br>
+                    <br>
+                    connection.once('open', ()=>{    <br>
+                    console.log('connected to mlab or whatever')    <br>
+                    })<br>
+
+                    <!-- <br>
+                    <h4><u>If there is an index.html populate with:</u></h4>
+                    <br>
+                    &lt!DOCTYPE html&gt   <br>
+                    &lthtml lang="en"&gt   <br>
+                    <br>
+                    &lthead&gt   <br>
+                    &ltmeta charset="UTF-8"&gt   <br>
+                    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt   <br>
+                    &ltmeta http-equiv="X-UA-Compatible" content="ie=edge"&gt   <br>
+                    &lttitle&gtMarks BookMarks&lt/title&gt   <br>
+                    &ltlink rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /&gt   <br>
+                    &ltlink rel="stylesheet" href="style.css"&gt   <br>
+                    &lt/head&gt   <br>
+                    <br>
+                    &ltbody&gt   <br>
+                    &ltdiv class="container-fluid"&gt   <br>
+                    &lth1&gtMARKS BOOKMARKS!!!!&lt/h1&gt   <br>
+                    &ltform onsubmit="app.controllers.bookmarkController.addBook(event)"&gt   <br>
+                    &ltinput type="text" name="title" placeholder="Title"&gt   <br>
+                    &ltbutton type="submit"&gtAdd Book&lt/button&gt   <br>
+                    &lt/form&gt   <br>
+                    &ltdiv id="book-list"&gt   <br>
+                    <br>
+                    &lt/div&gt   <br>
+                    &lt/div   <br>
+                    <br>
+                    &lt!-- External Libraries --&gt   <br>
+                    &ltscript src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"&gt&lt/script&gt   <br>
+                    &lt!-- services --&gt   <br>
+                    &ltscript src = "bookmark-service.js"&gt&lt/script&gt   <br>
+                    &lt!-- controllers --&gt   <br>
+                    &ltscript src = "bookmark-controller.js"&gt&lt/script&gt   <br>
+                    &lt!-- Init  --&gt   <br>
+                    &ltscript src = "app.js"&gt&lt/script&gt   <br>
+                    &lt/body&gt   <br>
+                    <br>
+                    &lt/html&gt   <br>
+
+                    <br>
+                    <h4><u>Populate app.js with:</u></h4>
+                    <br>
+                    var app = {<br>
+                    controllers: {<br>
+                    bookmarkController: new BookmarkController()<br>
+                    }<br>
+                    }<br>
+
+                    <br>
+                    <h4><u>Populate service.js with:</u></h4>
+                    <br>
+                    function BookmarkService() {   <br>
+                    var myBooks = []   <br>
+                    <br>        
+                    function logError(err) {   <br>
+                        console.error('ITS BRWOKED', err)   <br>
+                    }   <br>
+                    <br>
+                    this.getBooks = function getBooks(draw) {   <br>
+                        $.get('/api/books').then((books) => {   <br>
+                        myBooks = books   <br>
+                        draw(myBooks)   <br>
+                        })   <br>
+                    }   <br>
+                    <br>
+                    this.addBook = function (newBook, cb) {   <br>
+                        $.post('/api/books', newBook).then(function () {   <br>
+                        cb()   <br>
+                        })   <br>
+                    }   <br>
+                    <br>
+                    this.deleteBook = function (bookId, getBooks) {   <br>
+                        $.ajax({   <br>
+                        contentType: 'application/json',   <br>
+                        method: 'DELETE',   <br>
+                        url: '/api/books/' + bookId   <br>
+                        })   <br>
+                        .then(getBooks)   <br>
+                        .fail(logError)   <br>
+                    }   <br>
+                    <br>
+                    this.editBook = function (bookId, getBooks) {   <br>
+                        var book = myBooks.find(book => book._id == bookId)   <br>
+                        if(book.currentPage == 100){   <br>
+                        book.currentPage = 0   <br>
+                        }else{   <br>
+                        book.currentPage = 100   <br>
+                        }   <br>
+                        if (!book) { return logError('Ugh no idea what you are doing')}   <br>
+                    <br>
+                        $.ajax({   <br>
+                        contentType: 'application/json',   <br>
+                        method: 'PUT',   <br>
+                        url: '/api/books/' + bookId,   <br>
+                        data: JSON.stringify(book)   <br>
+                        }) // I AM AN ANGRY TEENAGER   <br>
+                        .then(getBooks)   <br>
+                        .fail(logError)   <br>
+                    }   <br>
+                    }   <br>
+
+                    <br>
+                    <h4><u>Populate controller.js with:</u></h4>
+                    <br>
+                    function BookmarkController(){<br>
+                    var bookmarkService = new BookmarkService()<br>
+                    <br>                
+                    function getBooks(){<br>
+                        bookmarkService.getBooks(draw)<br>
+                    }<br>
+                    <br>
+                    function draw(bookArr){<br>
+                        var bookElem = document.getElementById("book-list")<br>
+                        var template = '&ltul&gt'<br>
+                        for (var i = 0; i < bookArr.length; i++) {<br>
+                        var book = bookArr[i];<br>
+                        template += `<br>
+                        &ltli&gt${book.title}:  ${book.currentPage}&lt/li&gt
+                        &ltbutton type="button" onclick="app.controllers.bookmarkController.deleteBook('${book._id}')"&gtDelorted&lt/button&gt<br>
+                        &ltbutton type="button" onclick="app.controllers.bookmarkController.editBook('${book._id}')"&gtREAD&lt/button&gt<br>
+                        `<br>
+                        }<br>
+                        template += '&lt/ul&gt'<br>
+                        bookElem.innerHTML = template<br>
+                    }<br>
+                    <br>
+                    this.addBook = function(e){<br>
+                        e.preventDefault()<br>
+                        var newTitle = e.target.title.value<br>
+                        var newBook = {<br>
+                        title: newTitle<br>
+                        }<br>
+                        bookmarkService.addBook(newBook, getBooks)<br>
+                    }<br>
+                    <br>
+                    this.editBook = function(bookId){<br>
+                        bookmarkService.editBook(bookId, getBooks)<br>
+                    }<br>
+                    <br>
+                    this.deleteBook = function(bookId){<br>
+                        bookmarkService.deleteBook(bookId, getBooks)<br>
+                    }<br>
+                    
+                    <br>   
+                    <h4><u>In books.js populate with:</u></h4>
+                    <br>
+                    var express = require('express')<br>
+                    var router = express.Router()<br>
+                    var mongoose = require('mongoose')<br>
+                    <br>
+                    var bookSchema = new mongoose.Schema({<br>
+                        title: {type: String, required: true},<br>
+                        currentPage: {type: Number, required: true, default: 0}<br>
+                    })<br>
+                    <br>
+                    var Books = mongoose.model('Book', bookSchema)<br>
+                    <br>
+                    router.get('/', function(req, res, next) {<br>
+                        Books.find({})<br>
+                        .then((books)=>{<br>
+                        res.send(books)<br>
+                        })<br>
+                        .catch(next)<br>
+                    })<br>
+                    <br>
+                    router.post('/', function(req, res, next) {<br>
+                        Books.create(req.body)<br>
+                        .then((book)=>{<br>
+                            res.send(book)<br>
+                        })<br>
+                        .catch(next)<br>
+                    })<br>
+                    <br>
+                    router.get('/:bookId', function(req, res, next){<br>
+                    let bookId = req.params.bookId<br>
+                    Books.findById(bookId)<br>
+                    .then(book =>{<br>
+                        if(book){<br>
+                        res.send(book)<br>
+                        }else{<br>
+                        next({message: 'You suck!'})<br>
+                        }<br>
+                    })<br>
+                    .catch(next)<br>
+                    })<br>
+                    <br>
+                    router.delete('/:bookId', (req, res, next) => {<br>
+                    var bookId = req.params.bookId<br>
+                    Books.findByIdAndRemove(bookId)<br>
+                    .then(book =>{<br>
+                        res.send({message: 'Successfully deleted.'})<br>
+                    })<br>
+                    .catch(next)<br>
+                    })<br>
+                    <br>
+                    router.put('/:bookId', (req, res, next) =>{<br>
+                    var bookId = req.params.bookId<br>
+                    var updatedBookObj = req.body<br>
+                    Books.findByIdAndUpdate(bookId, updatedBookObj)<br>
+                    .then(book => {<br>
+                        res.send({message: 'Successfully Updated Book'})<br>
+                    })<br>
+                    .catch(next)<br>
+                    })<br>
+                    <br>
+                    router.use(defaultErrorHandler)<br>
+                    <br>
+                    function defaultErrorHandler(err, req, res, next){<br>
+                    if (req.xhr){<br>
+                        res.json({success: false, error: err})<br>
+                    }else{<br>
+                        res.json({success: false, error: err.message})<br>
+                    }<br>
+                    }<br>
+                    <br>
+                    module.exports = router<br>
+                    <br>
+                    getBooks()<br>
+                    }<br>
+                    <br>
+                    <br>
+                    <br>
+                    <br> -->
+
+                </p>
+            </div>
+
+            <div class="col-xs-3"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>
